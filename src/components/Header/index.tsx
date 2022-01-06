@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { ActiveLink } from '../ActiveLink';
 
 import { SignInButton } from '../SignInButton';
@@ -10,13 +12,13 @@ export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <img src="/images/logo.svg" alt="ig.news logo" />
+        <Image src="/images/logo.svg" alt="ig.news logo" width="110" height="110"/>
 
         <nav>
           <ActiveLink href="/" activeClassName={styles.active}>
             <a>Home</a>
           </ActiveLink>
-          <ActiveLink href="/posts" prefetch activeClassName={styles.active}>
+          <ActiveLink href="/posts" activeClassName={styles.active}>
             <a>Posts</a>
           </ActiveLink>
         </nav>

@@ -5,6 +5,7 @@ import { RichText } from 'prismic-dom'
 import getPrismicClient from '../../services/prismic'
 
 import styles from './styles.module.sass'
+import Link from 'next/link'
 
 type Post = {
   slug: string
@@ -18,6 +19,7 @@ interface PostProps {
 }
 
 export default function Posts({ posts }: PostProps) {
+  console.log(posts)
   return (
     <>
       <Head>
@@ -28,11 +30,13 @@ export default function Posts({ posts }: PostProps) {
         <div className={styles.postList}>
           {
             posts.map(post => (
-              <a href="#" key={post.slug}>
-                <time>{post.updatedAt}</time>
-                <strong>{post.title}</strong>
-                <p>{post.excerpt}</p>
-              </a>
+              <Link href={`/posts/${post.slug}`} key={post.slug}>
+                <a key={post.slug}>
+                  <time>{post.updatedAt}</time>
+                  <strong>{post.title}</strong>
+                  <p>{post.excerpt}</p>
+                </a>
+              </Link>
 
             ))
           }
